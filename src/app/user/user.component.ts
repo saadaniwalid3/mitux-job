@@ -13,7 +13,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserComponent implements OnInit {
 
-  @Input()
   user: any;
 
   loginForm: FormGroup;
