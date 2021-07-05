@@ -1,0 +1,17 @@
+/* Error: Tabs and spaces may not be mixed.
+ *    ,
+ * 12 |       margin: 0
+ *    | ^^^^^^
+ *    '
+ *   desktop\hostgen_main_files_v1.0\hostgen-10\hostgen_main_files_v1.0\html-template\assets\css\sass\_general.sass 12:1  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Tabs and spaces may not be mixed.\a    \2577 \a 12 \2502        margin: 0\d\a    \2502  ^^^^^^\a    \2575 \a   desktop\\hostgen_main_files_v1.0\\hostgen-10\\hostgen_main_files_v1.0\\html-template\\assets\\css\\sass\\_general.sass 12:1  root stylesheet";
+}
