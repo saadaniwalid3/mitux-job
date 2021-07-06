@@ -15,18 +15,7 @@ export class UserComponent implements OnInit {
 
   user: any;
 
-  loginForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
-  error = '';
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService,
-    private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
   ngOnInit(): void {

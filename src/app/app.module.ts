@@ -9,13 +9,17 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginCandidateComponent } from './login-candidate/login-candidate.component';
+import { LoginCompanyComponent } from './login-company/login-company.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    LoginCandidateComponent,
+    LoginCompanyComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -24,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
+      { path: 'logincandidate', component: LoginCandidateComponent },
+      { path: 'logincompany', component: LoginCompanyComponent },
       { path: 'user', component: UserComponent }
       //, canActivate: [AuthGuard]  }
     ]),

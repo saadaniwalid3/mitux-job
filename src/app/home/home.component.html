@@ -53,11 +53,6 @@
           <!-- End Header Menu -->
         </nav>
       </div>
-      <div class="col-lg-2 col-md-3 col-4 text-right">
-        <!-- Start Header Button -->
-        <a data-animate="fadeInUp" data-delay=".2" [routerLink]="['/login']" class="header-btn btn"><i class="fas fa-sign-in-alt" aria-hidden="true"></i><span>&nbsp;&nbsp;se connecter</span></a>
-        <!-- End Header Button -->
-      </div>
     </div>
   </div>
 </header>
@@ -96,6 +91,17 @@
   <div class="hero-shape padding-footer">
     <img src="../assets/img/shape-footer.svg" alt="shape3" />
   </div>
+  <div class="col-lg-2 col-md-3 col-4 text-right d-inline">
+    <!-- Start Header Button -->
+    <a data-animate="fadeInUp" data-delay=".2" [routerLink]="['/logincompany']" class="header-btn btn"><span>&nbsp;&nbsp;Company</span></a>
+    <!-- End Header Button -->
+  </div>
+  <div class="col-lg-2 col-md-3 col-4 text-right d-inline">
+    <!-- Start Header Button -->
+    <a data-animate="fadeInUp" data-delay=".2" [routerLink]="['/logincandidate']" class="header-btn btn"><span>&nbsp;&nbsp;Candidate</span></a>
+    <!-- End Header Button -->
+  </div>
+
 </section>
 
 <!-- Start Breadcrumb -->
