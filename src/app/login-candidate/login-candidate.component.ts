@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-login-candidate',
@@ -8,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginCandidateComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  username = ''
+  password = ''
+  invalidLogin = false
+  @Input() error: string | null;
+
+  constructor(private http: HttpClient, private router: Router,
+    private loginservice: AuthenticationService) { }
 
   ngOnInit(): void {
 
@@ -28,10 +36,26 @@ export class LoginCandidateComponent implements OnInit {
       container.classList.remove("sign-up-mode");
     });
 
+
+    sign_in.addEventListener("click", () => {
+      console.log("helloooooooooooooooo " + this.username + " " + this.password);
+      this.loginservice.authenticate(this.username, this.password).subscribe(
+        data => {
+          this.router.navigate(['user'])
+          this.invalidLogin = false
+          console.log("mé 3andek 7atta ghalta!!!!");
+        },
+        error => {
+          this.invalidLogin = true
+          this.error = error.message;
+          console.log("3andek ghalta!!!!");
+        });
+    });
+
     sign_up.addEventListener("click", () => {
 
       console.log("First Name" + (<HTMLInputElement>document.getElementById("firstName")).value);
-      this.http.post("http://localhost:8080/Candidate",
+      this.http.post("http://localhost:8080/register",
         {
           "firstname": (<HTMLInputElement>document.getElementById("firstName")).value,
           "lastname": (<HTMLInputElement>document.getElementById("lastName")).value,

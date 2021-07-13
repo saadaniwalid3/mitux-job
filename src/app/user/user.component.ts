@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../_services/authentication.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
@@ -20,7 +20,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get("http://localhost:8080/Candidate/1")
+    this.http.get("http://localhost:8080/greeting")
       .subscribe(data => {
         this.user = data;
         console.log(data)

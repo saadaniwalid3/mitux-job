@@ -1,37 +1,38 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
-@Injectable({ providedIn: 'root' })
+export class User {
+  constructor(public status: string) { }
+}
+
+@Injectable({
+  providedIn: "root"
+})
 export class AuthenticationService {
-
-  currentUser: string;
-
-  constructor(private http: HttpClient) { }
-
-  login(username: string, password: string) {
-    return this.http.post<any>(`http://localhost:8080/Candidate/1`, { username, password })
-      .pipe(map(user => {
-        // login successful if there's a user in the response
-        if (user) {
-          // store user details and basic auth credentials in local storage 
-          // to keep user logged in between page refreshes
-          user.authdata = window.btoa(username + ':' + password);
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUser = JSON.parse(JSON.stringify(user)).firstName;
-        }
-
-        return user;
-      }));
+  constructor(private httpClient: HttpClient) { }
+  // Provide username and password for authentication, and once authentication is successful, 
+  //store JWT token in session
+  authenticate(username, password) {
+    return this.httpClient
+      .post<any>("http://localhost:8080/authenticate", { "email": username, "password": password })
+      .pipe(
+        map(userData => {
+          sessionStorage.setItem("username", username);
+          let tokenStr = "Bearer " + userData.token;
+          sessionStorage.setItem("token", tokenStr);
+          return userData;
+        })
+      );
   }
 
-  logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
-    this.currentUser = "";
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem("username");
+    console.log(!(user === null));
+    return !(user === null);
   }
 
-  /*getCurrentUser() {
-    return this.currentUser;
-  }*/
+  logOut() {
+    sessionStorage.removeItem("username");
+  }
 }

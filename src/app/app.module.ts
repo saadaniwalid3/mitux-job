@@ -7,10 +7,11 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginCandidateComponent } from './login-candidate/login-candidate.component';
 import { LoginCompanyComponent } from './login-company/login-company.component';
+import { BasicAuthHttpInterceptorService } from './_services/basic-auth-http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,10 @@ import { LoginCompanyComponent } from './login-company/login-company.component';
       //, canActivate: [AuthGuard]  }
     ]),
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHttpInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
