@@ -1,12 +1,6 @@
 @import ../../assets/css/circle-percentage.css
 
-.center-img    
-  margin: auto
-  width: 150%
-  height: 150%
-  padding: 10px
-
-.aligner
+.selector-align
   margin-top: 50px
   margin-left: 70px
 
@@ -22,24 +16,19 @@
   margin-top: 50px
   background-color: #fff
   z-index: 2
-
-
+  
 .circle:before
-  content: ""
-  display: block
-  position: absolute
-  z-index: 1
+  position: relative
   bottom: 0
   border-width: 0 0 0 1px
   border: 1px solid #999
-  width: 0
+  width: 10px
   height: 50px
-  left: 50%
-  top: -54px
   margin-left: -1px
 
-.circle:first-child
+
+.c100:first-child
   margin-top: 0
 
-.circle:first-child:before
+.c100:first-child:before
   display: none
