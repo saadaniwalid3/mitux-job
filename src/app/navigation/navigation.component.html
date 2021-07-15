@@ -1,0 +1,55 @@
+<div class="d-flex flex-row">
+  <div class="selector-align">
+    <div class="c100 p34 d-flex flex-column">
+      <span><img src="../assets/img/match5.png" /></span>
+      <div class="slice" [routerLink]="['/info-perso']">
+        <div class="bar"></div>
+        <div class="fill"></div>
+      </div>
+    </div>
+    <div class="c100 p34 d-flex flex-column">
+      <span><img src="../assets/img/match5.png" /></span>
+      <div class="slice" [routerLink]="['/etudes']">
+        <div class="bar"></div>
+        <div class="fill"></div>
+      </div>
+    </div>
+    <div class="c100 p34 d-flex flex-column">
+      <span><img src="../assets/img/match5.png" /></span>
+      <div class="slice" [routerLink]="['/professionnel']">
+        <div class="bar"></div>
+        <div class="fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="or-spacer-vertical left">
+    <div class="mask"></div>
+  </div>
+</div>
+
+
+
+<!-- Sidebar  -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <a class="navbar-brand" [routerLink]="['/']">MPSI</a>
+  </div>
+
+  <ul class="list-unstyled components">
+
+    <li class="nav-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
+    </li>
+
+  </ul>
+
+</nav>

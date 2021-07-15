@@ -12,6 +12,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginCandidateComponent } from './login-candidate/login-candidate.component';
 import { LoginCompanyComponent } from './login-company/login-company.component';
 import { BasicAuthHttpInterceptorService } from './_services/basic-auth-http-interceptor.service';
+import { InfoPersoComponent } from './info-perso/info-perso.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { EtudesComponent } from './etudes/etudes.component';
+import { ProfessionnelComponent } from './professionnel/professionnel.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { BasicAuthHttpInterceptorService } from './_services/basic-auth-http-int
     HomeComponent,
     UserComponent,
     LoginCandidateComponent,
-    LoginCompanyComponent
+    LoginCompanyComponent,
+    InfoPersoComponent,
+    NavigationComponent,
+    EtudesComponent,
+    ProfessionnelComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,7 +39,10 @@ import { BasicAuthHttpInterceptorService } from './_services/basic-auth-http-int
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'logincandidate', component: LoginCandidateComponent },
       { path: 'logincompany', component: LoginCompanyComponent },
-      { path: 'user', component: UserComponent }
+      { path: 'user', component: UserComponent },
+      { path: 'info-perso', component: InfoPersoComponent },
+      { path: 'etudes', component: EtudesComponent },
+      { path: 'professionnel', component: ProfessionnelComponent }
       //, canActivate: [AuthGuard]  }
     ]),
   ],
