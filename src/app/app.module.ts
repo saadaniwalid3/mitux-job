@@ -50,7 +50,7 @@ import { ProfessionnelComponent } from './professionnel/professionnel.component'
             component: EtudesComponent,
           },
           {
-            path: 'professionnal',
+            path: 'professionnel',
             component: ProfessionnelComponent,
           }
         ]
