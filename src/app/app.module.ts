@@ -39,9 +39,42 @@ import { ProfessionnelComponent } from './professionnel/professionnel.component'
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'logincandidate', component: LoginCandidateComponent },
       { path: 'logincompany', component: LoginCompanyComponent },
-      { path: 'user', component: UserComponent },
-      { path: 'info-perso', component: InfoPersoComponent },
-      { path: 'etudes', component: EtudesComponent },
+      { path: 'user', component: UserComponent, 
+        children: [
+          {
+            path: 'info-perso',
+            component: InfoPersoComponent
+          },
+          {
+            path: 'etudes',
+            component: EtudesComponent,
+          },
+          {
+            path: 'professionnal',
+            component: ProfessionnelComponent,
+          }
+        ]
+      },
+      {
+        path: 'user', component: UserComponent, outlet: 'infos',
+        children: [
+          {
+            path: 'info-perso',
+            component: InfoPersoComponent
+          },
+          {
+            path: 'etudes',
+            component: EtudesComponent
+          },
+          {
+            path: 'professionnel',
+            component: ProfessionnelComponent
+          }
+        ]
+      },
+
+      { path: 'info-perso', component: InfoPersoComponent, outlet: 'infos' },
+      { path: 'etudes', component: EtudesComponent, outlet: 'infos' },
       { path: 'professionnel', component: ProfessionnelComponent }
       //, canActivate: [AuthGuard]  }
     ]),
