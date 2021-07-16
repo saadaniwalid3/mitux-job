@@ -55,23 +55,6 @@ import { ProfessionnelComponent } from './professionnel/professionnel.component'
           }
         ]
       },
-      {
-        path: 'user', component: UserComponent, outlet: 'infos',
-        children: [
-          {
-            path: 'info-perso',
-            component: InfoPersoComponent
-          },
-          {
-            path: 'etudes',
-            component: EtudesComponent
-          },
-          {
-            path: 'professionnel',
-            component: ProfessionnelComponent
-          }
-        ]
-      },
 
       { path: 'info-perso', component: InfoPersoComponent, outlet: 'infos' },
       { path: 'etudes', component: EtudesComponent, outlet: 'infos' },
